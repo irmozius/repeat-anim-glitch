@@ -3,6 +3,7 @@ extends Control
 @onready var sp = $sp
 @onready var anim = $AnimationPlayer
 @onready var anim_name = $anim_name
+@onready var buf_name = $buf_name
 
 var current_anim : String
 var anim_buffer : String
@@ -29,9 +30,11 @@ func play_anim(nm):
 	anim.play(nm)
 	anim_active = true
 	await anim.animation_finished
+#	anim_name.text = ""
 	if anim_buffer != "":
 		change_anim(anim_buffer)
 		anim_buffer = ""
+		buf_name.text = ""
 	else:
 		anim_active = false
 		if nm == "idle":
@@ -40,3 +43,4 @@ func play_anim(nm):
 	
 func buffer_anim(nm):
 	anim_buffer = nm
+	buf_name.text = nm

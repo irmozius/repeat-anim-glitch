@@ -74,7 +74,7 @@ _data = {
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_ilnaj"]
-font_size = 68
+font_size = 37
 
 [node name="anim_rep_test" type="Control"]
 layout_mode = 3
@@ -97,9 +97,32 @@ libraries = {
 
 [node name="anim_name" type="Label" parent="."]
 layout_mode = 0
-offset_left = 117.0
-offset_top = 73.0
-offset_right = 400.0
-offset_bottom = 169.0
-text = "going up"
+offset_left = 286.0
+offset_top = 70.0
+offset_right = 603.0
+offset_bottom = 127.0
 label_settings = SubResource("LabelSettings_ilnaj")
+
+[node name="buf_name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 285.0
+offset_top = 121.0
+offset_right = 602.0
+offset_bottom = 178.0
+label_settings = SubResource("LabelSettings_ilnaj")
+
+[node name="cur_anim" type="Label" parent="."]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 85.0
+offset_right = 281.0
+offset_bottom = 111.0
+text = "current_anim"
+
+[node name="buf_anim" type="Label" parent="."]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 142.0
+offset_right = 291.0
+offset_bottom = 168.0
+text = "buffered_anim"
