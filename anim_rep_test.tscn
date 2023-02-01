@@ -1,0 +1,105 @@
+[gd_scene load_steps=9 format=3 uid="uid://bty5g802wk4dc"]
+
+[ext_resource type="Script" path="res://anim_rep_test.gd" id="1_ksptl"]
+[ext_resource type="Texture2D" uid="uid://b1jwujagld4q7" path="res://icon.svg" id="1_vrmm7"]
+
+[sub_resource type="Animation" id="Animation_gpih3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sp:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(891, 571)]
+}
+
+[sub_resource type="Animation" id="Animation_rvp7e"]
+resource_name = "going_left"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sp:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(891, 571), Vector2(117, 565)]
+}
+
+[sub_resource type="Animation" id="Animation_46sew"]
+resource_name = "going_up"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sp:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(891, 571), Vector2(904, 76)]
+}
+
+[sub_resource type="Animation" id="Animation_e5wl3"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sp:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(891, 571)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lr0iv"]
+_data = {
+"RESET": SubResource("Animation_gpih3"),
+"going_left": SubResource("Animation_rvp7e"),
+"going_up": SubResource("Animation_46sew"),
+"idle": SubResource("Animation_e5wl3")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_ilnaj"]
+font_size = 68
+
+[node name="anim_rep_test" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ksptl")
+
+[node name="sp" type="Sprite2D" parent="."]
+position = Vector2(891, 571)
+texture = ExtResource("1_vrmm7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_default_blend_time = 0.3
+libraries = {
+"": SubResource("AnimationLibrary_lr0iv")
+}
+
+[node name="anim_name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 73.0
+offset_right = 400.0
+offset_bottom = 169.0
+text = "going up"
+label_settings = SubResource("LabelSettings_ilnaj")
